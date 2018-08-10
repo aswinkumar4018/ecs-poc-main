@@ -1,0 +1,21 @@
+version: '3'
+services:
+  locations.dev:
+    build: ../ecs-poc-service-locations
+    image: locations:dev
+    container_name: locations.dev
+    ports:
+      - "80:80"
+    networks:
+      - back-tier
+  characters.dev:
+    build: ../ecs-poc-service-characters
+    image: characters:dev
+    container_name: characters.dev
+    ports:
+      - "8080:80"
+    networks:
+      - back-tier
+      
+networks:
+  back-tier:
